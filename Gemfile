@@ -37,7 +37,6 @@ group :development do
   # Auto-reload the server when files are changed
   # https://github.com/alexch/rerun
   gem "rerun"
-
   gem "pry"
 end
 
@@ -47,4 +46,5 @@ group :test do
   gem "rspec"
   gem "rack-test", "~> 1.1"
 end
+#gem "pg"
 

@@ -128,6 +128,7 @@ end
         user_destination.destination.to_json
     end
 
+   
     get '/my_destinations' do
         User.first.destinations.to_json
     end
