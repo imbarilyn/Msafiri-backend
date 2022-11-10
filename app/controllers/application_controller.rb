@@ -74,6 +74,7 @@ end
     post '/destinations' do
         destination = Destination.create(
             place: params[:place],
+            image: params[:image],
             event: params[:event],
             date: params[:date],
             time: params[:time]
@@ -94,6 +95,7 @@ end
         destination = Destination.find(params[:id])
         destination.update(
             place: params[:place],
+            image: params[:image],
             event: params[:event],
             date: params[:date],
             time: params[:time]
@@ -156,12 +158,12 @@ end
     get '/review/:id/destinations' do
         Review.find(params[:id]).destinations.to_json(include: :review)
     end
-    # get all reviews of a destination that are not completed
-    get '/review/:id/destionations/active' do
-        Review.find(params[:id]).destinations.where(status: false).to_json(include: :review)
-    end
-    # get all reviews of a destination that are completed
-    get '/review/:id/destinations/completed' do
-        Review.find(params[:id]).destinations.where(status: true).to_json(include: :review)
-    end
+    # # get all reviews of a destination that are not completed
+    # get '/review/:id/destionations/active' do
+    #     Review.find(params[:id]).destinations.where(status: false).to_json(include: :review)
+    # end
+    # # get all reviews of a destination that are completed
+    # get '/review/:id/destinations/completed' do
+    #     Review.find(params[:id]).destinations.where(status: true).to_json(include: :review)
+    # end
 end
