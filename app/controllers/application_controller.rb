@@ -83,6 +83,7 @@ end
     post '/destinations' do
         destination = Destination.create(
             place: params[:place],
+            image: params[:image],
             event: params[:event],
             date: params[:date],
             time: params[:time]
@@ -104,6 +105,7 @@ end
         destination = Destination.find(params[:id])
         destination.update(
             place: params[:place],
+            image: params[:image],
             event: params[:event],
             date: params[:date],
             time: params[:time]

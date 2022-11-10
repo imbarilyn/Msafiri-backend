@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2022_11_08_174338) do
 
   create_table "destinations", force: :cascade do |t|
     t.text "place"
+    t.string "image"
     t.string "event"
     t.integer "date"
     t.integer "time"
