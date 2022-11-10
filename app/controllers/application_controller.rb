@@ -174,12 +174,15 @@ end
     get '/review/:id/destinations' do
         Review.find(params[:id]).destinations.to_json(include: :review)
     end
-    # get all reviews of a destination that are not completed
-    # get '/review/:id/destionations/active' do
-    #     Review.find(params[:id]).destinations.where(status: false).to_json(include: :review)
-    # end
-    # # get all reviews of a destination that are completed
-    # get '/review/:id/destinations/completed' do
-    #     Review.find(params[:id]).destinations.where(status: true).to_json(include: :review)
-    # end
+    post '/user_destination' do
+        user_destination = UserDestination.create(
+            user_id:User.first.id,
+            destination_id: params[:destination_id],        
+        )
+        user.to_json
+    end
+
+    get '/my_destinations' do
+        User.first.destinations.to_json
+    end
 end
