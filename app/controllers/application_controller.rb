@@ -120,12 +120,12 @@ end
         {message: "Destination '#{destination.id}' has been deleted."}.to_json
     end
 
-    post '/user_destination' do
+    post '/user_destinations' do
         user_destination = UserDestination.create(
             user_id:User.first.id,
             destination_id: params[:destination_id],        
         )
-        user.to_json
+        user_destination.destination.to_json
     end
 
     get '/my_destinations' do
